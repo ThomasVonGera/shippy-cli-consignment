@@ -2,6 +2,7 @@ package main
 
 import(
 	"log"
+	"json"
 	"context"
 	"google.golang.org/grpc"
 	pb "github.com/ThomasVonGera/shippy-service-consignment/proto/consignment"
@@ -12,7 +13,16 @@ const (
 	defaultFilename = "consignment.json"
 )
 
-func
+func parseFile(filename string) (*pb.Consignment, error){
+	var consignment *pb.Consignment
+	data, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return nil,err
+	}
+	json.Unmarshal(data, &consignment)
+	return consignment, err
+
+}
 
 func main() {
 	grpcConnection, err := grpc.Dial(adress, grpc.WithInsecure)
