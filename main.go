@@ -55,4 +55,13 @@ func main() {
 	}
 
 	log.Printf("Erzeugt: %t", r.Created)
+
+	getAll, err := client.GetConsignments(context.Background(), &pb.GetRequest{})
+	if err != nil {
+		log.Fatalf("Konnte Lieferungen nicht auflisten: %v", err)
+	}
+
+	for _, v := range getAll.Consignments {
+		log.Println(v)
+	}
 }
