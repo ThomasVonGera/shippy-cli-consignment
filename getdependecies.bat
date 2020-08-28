@@ -1,0 +1,1 @@
+go get github.com/ThomasVonGera/shippy-service-consignment@dbea4838e639
