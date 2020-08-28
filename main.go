@@ -30,9 +30,9 @@ func parseFile(filename string) (*pb.Consignment, error) {
 
 func main() {
 	service := micro.NewService(micro.Name(microservicename))
-	service.Init
+	service.Init()
 
-	client := pb.NewShippingServiceClient("shippy.service.consignment", service.Client())
+	client := pb.NewShippingService("shippy.service.consignment", service.Client())
 
 	filename := defaultFilename
 
