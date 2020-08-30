@@ -12,7 +12,6 @@ import (
 )
 
 const (
-	adress           = "localhost:50051"
 	defaultFilename  = "consignment.json"
 	microservicename = "shippy.cli.consignment"
 )
